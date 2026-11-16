@@ -843,6 +843,15 @@
 .countdown svg {
   width: 100%;
   height: 100%;
+  /* El brillo va en el <svg> completo y con desborde visible: aplicado al círculo, se recortaba en el borde cuadrado del SVG. */
+  overflow: visible;
+  filter: drop-shadow(0 0 26px rgba(255, 107, 26, 0.5));
+  transition: filter 0.4s;
+}
+
+.countdown.urgent svg,
+.countdown.done svg {
+  filter: drop-shadow(0 0 26px rgba(255, 77, 77, 0.55));
 }
 
 .countdown .track {
@@ -857,13 +866,11 @@
   stroke-width: 24;
   stroke-linecap: round;
   transition: stroke 0.4s;
-  filter: drop-shadow(0 0 22px rgba(255, 107, 26, 0.55));
 }
 
 .countdown.urgent .ring,
 .countdown.done .ring {
   stroke: var(--danger);
-  filter: drop-shadow(0 0 22px rgba(255, 77, 77, 0.6));
 }
 
 .countdown-face {

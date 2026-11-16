@@ -4,6 +4,7 @@ import { BLOCKS } from '../content/talk';
 import { slides } from '../slides';
 import { Ambient } from './Ambient';
 import { Clock } from './Clock';
+import { SlideBoundary } from './SlideBoundary';
 import { gsap, reduced } from './anim';
 
 type Pos = { i: number; step: number };
@@ -156,7 +157,9 @@ export function Deck() {
       <Ambient />
       <div className="stage" style={{ transform: `translate(-50%, -50%) scale(${scale})` }}>
         <div className="slide-wrap" ref={wrap}>
-          <Slide key={def.id} step={pos.step} />
+          <SlideBoundary key={def.id}>
+            <Slide step={pos.step} />
+          </SlideBoundary>
         </div>
 
         <div className="chrome">

@@ -1,7 +1,7 @@
 // Todo el contenido editable de la charla vive aquí y en prompts.ts.
 
 /** Dirección pública del sitio. Los QR apuntan aquí aunque la presentación corra en local. */
-export const PUBLIC_URL = 'https://saavedracbr.com/charla-tim/';
+export const PUBLIC_URL = 'https://tim.saavedracbr.com/';
 export const KIT_URL = `${PUBLIC_URL}kit/`;
 export const KIT_URL_LABEL = KIT_URL.replace(/^https?:\/\//, '').replace(/\/$/, '');
 

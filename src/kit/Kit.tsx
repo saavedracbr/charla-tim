@@ -125,10 +125,18 @@ export function Kit() {
               <a href="https://forms.new" target="_blank" rel="noreferrer">
                 forms.new
               </a>{' '}
-              con 3 preguntas: nombre, correo o WhatsApp, y "¿qué te haría comprarlo?".
+              con 3 preguntas: nombre, correo o WhatsApp, y "¿qué te haría comprarlo?". Si quieres segmentar, suma
+              una o dos de opción múltiple (por ejemplo, cuánto gasta hoy en algo parecido). Cada pregunta extra te
+              cuesta inscritos.
             </li>
             <li>
-              En <strong>Enviar</strong>, copia el enlace corto del formulario.
+              Publica el formulario y copia el enlace para responder (botón <strong>Enviar</strong> o{' '}
+              <strong>Publicar</strong>, ícono de enlace).
+            </li>
+            <li>
+              Si lo creaste con tu cuenta @aloe, revisa quién puede responder: debe decir{' '}
+              <strong>Cualquier persona que tenga el enlace</strong>, no solo usuarios de la universidad. Pruébalo
+              abriendo el enlace en una ventana de incógnito.
             </li>
             <li>
               Pídele a Gemini: <em>"Haz que todos los botones abran este enlace en una pestaña nueva: [enlace]"</em>.
