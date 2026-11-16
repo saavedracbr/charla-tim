@@ -1,0 +1,45 @@
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/dm-sans';
+@import '@fontsource-variable/jetbrains-mono';
+
+:root {
+  --bg: #0c0a09;
+  --bg-2: #171311;
+  --ink: #f6efe7;
+  --muted: #a99d91;
+  --line: rgba(246, 239, 231, 0.14);
+  --panel: rgba(246, 239, 231, 0.045);
+  --accent: #ff6b1a;
+  --accent-2: #ffb347;
+  --cool: #5ad1c0;
+  --danger: #ff4d4d;
+  --font-display: 'Bricolage Grotesque Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'DM Sans Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Code', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--accent);
+  color: #1a0d04;
+}
