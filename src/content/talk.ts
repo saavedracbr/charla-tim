@@ -96,14 +96,32 @@ export const DEMO_STEPS: { title: string; detail: string }[] = [
   { title: 'Descargar y publicar', detail: 'Exportar el código y arrastrarlo a Netlify Drop: un enlace para enviar hoy.' },
 ];
 
-/**
- * Respaldo de la demo: capturas en public/demo/ (una por paso, en orden). Tecla B en la diapositiva.
- * Paso 5: la landing ya publicada está en public/allqu/ (tim.saavedracbr.com/allqu/).
- */
-export const DEMO_BACKUP: string[] = [1, 2, 3, 4, 5].map((n) => `demo/paso-${n}.png`);
+export type Shot = { src: string; caption: string };
 
-/** Copia publicada de la landing de la demo, por si la publicación en vivo falla. */
-export const DEMO_PUBLISHED_URL = `${PUBLIC_URL}allqu/`;
+/** Publicar con Netlify Drop, paso a paso. Se usa en el respaldo de la demo y en el kit. */
+export const PUBLISH_SHOTS: Shot[] = [
+  { src: 'demo/paso-5-1.jpg', caption: 'En Canvas: Exportar → Descargar código.' },
+  { src: 'demo/paso-5-2.jpg', caption: 'En app.netlify.com/drop, arrastra el archivo .html.' },
+  { src: 'demo/paso-5-3.jpg', caption: 'Elige "Rename and deploy": lo renombra a index.html.' },
+  { src: 'demo/paso-5-4.jpg', caption: 'Ya está en línea, pero con contraseña y por 1 hora. Pulsa "Claim this site".' },
+  { src: 'demo/paso-5-5.jpg', caption: 'Crea tu cuenta gratis: Google, GitHub o correo.' },
+  { src: 'demo/paso-5-6.jpg', caption: 'Cambia el nombre del enlace por el de tu marca.' },
+  { src: 'demo/paso-5-7.jpg', caption: 'En "Who can access", elige Public y pulsa "Make public".' },
+  { src: 'demo/paso-5-8.jpg', caption: 'Listo: allqu.netlify.app es público.' },
+];
+
+/**
+ * Respaldo de la demo: capturas en public/demo/, una lista por paso.
+ * En la diapositiva: B muestra u oculta; con el respaldo abierto, ← y → pasan de captura.
+ * Plan B adicional: la landing también está publicada en public/allqu/ (tim.saavedracbr.com/allqu/).
+ */
+export const DEMO_BACKUP: Shot[][] = [
+  [{ src: 'demo/paso-1.jpg', caption: 'Gemini con la cuenta @aloe y Canvas activado.' }],
+  [{ src: 'demo/paso-2.jpg', caption: 'El prompt maestro genera la landing completa.' }],
+  [{ src: 'demo/paso-3.jpg', caption: 'Una iteración: cinco titulares y se aplica el primero.' }],
+  [{ src: 'demo/paso-4.jpg', caption: 'Todos los botones abren el Google Form.' }],
+  PUBLISH_SHOTS,
+];
 
 export const SPRINT_STEPS = [
   'Abran el kit con el QR.',

@@ -188,6 +188,60 @@ ul.plain li:last-child {
   color: var(--muted);
 }
 
+/* Capturas de Netlify */
+.shots {
+  margin-top: 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+}
+
+.shots summary {
+  cursor: pointer;
+  padding: 14px 18px;
+  font-weight: 600;
+}
+
+.shots ol {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+  margin: 0;
+  padding: 4px 18px 18px;
+  list-style: none;
+  counter-reset: shot;
+}
+
+.shots li {
+  counter-increment: shot;
+}
+
+.shots figure {
+  margin: 0;
+}
+
+.shots img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.shots figcaption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.shots figcaption::before {
+  content: counter(shot) '. ';
+  color: var(--accent);
+  font-weight: 700;
+}
+
 /* Generador */
 .builder {
   display: grid;
@@ -446,6 +500,9 @@ ol.criteria li::before {
 
 /* Impresión: sirve como PDF */
 @media print {
+  .shots {
+    display: none;
+  }
   .kit-body {
     background: #fff;
   }

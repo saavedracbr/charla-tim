@@ -1,23 +1,54 @@
 import { useEffect, useRef, useState } from 'react';
-import { DEMO_BACKUP, DEMO_BRAND, DEMO_PUBLISHED_URL, DEMO_STEPS } from '../content/talk';
+import { DEMO_BACKUP, DEMO_BRAND, DEMO_STEPS } from '../content/talk';
 import { useSlideAnim } from '../deck/anim';
 import type { SlideProps } from '../deck/types';
+
+const NEXT_KEYS = ['ArrowRight', 'ArrowDown', 'PageDown', ' '];
+const PREV_KEYS = ['ArrowLeft', 'ArrowUp', 'PageUp'];
 
 export function S11Demo({ step }: SlideProps) {
   const root = useRef<HTMLElement>(null);
   const [backup, setBackup] = useState(false);
+  const [idx, setIdx] = useState(0);
   useSlideAnim(root, step);
 
-  const shot = step > 0 ? DEMO_BACKUP[step - 1] : undefined;
+  const shots = step > 0 ? (DEMO_BACKUP[step - 1] ?? []) : [];
+  const shot = shots[Math.min(idx, shots.length - 1)];
 
-  // B muestra u oculta la captura de respaldo del paso actual (si existe).
+  useEffect(() => setIdx(0), [step]);
+
+  // B muestra u oculta el respaldo del paso actual. Abierto, las flechas recorren sus capturas
+  // (en fase de captura, para que la presentación no avance) y al pasar la última se cierra.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'b' || e.key === 'B') setBackup((v) => !v);
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      const consume = () => {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      };
+      if (e.key === 'b' || e.key === 'B') {
+        consume();
+        setIdx(0);
+        setBackup((v) => !v);
+        return;
+      }
+      if (!backup || !shots.length) return;
+      if (e.key === 'Escape') {
+        consume();
+        setBackup(false);
+      } else if (NEXT_KEYS.includes(e.key)) {
+        consume();
+        if (idx < shots.length - 1) setIdx(idx + 1);
+        else setBackup(false);
+      } else if (PREV_KEYS.includes(e.key)) {
+        consume();
+        if (idx > 0) setIdx(idx - 1);
+        else setBackup(false);
+      }
     };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, []);
+    window.addEventListener('keydown', onKey, true);
+    return () => window.removeEventListener('keydown', onKey, true);
+  }, [backup, idx, shots.length]);
 
   return (
     <section className="slide s-demo" ref={root}>
@@ -63,10 +94,15 @@ export function S11Demo({ step }: SlideProps) {
 
       {backup && shot && (
         <div className="backup">
-          <img src={shot} alt={`Captura de respaldo del paso ${step}`} />
-          {step === DEMO_STEPS.length && (
-            <p className="backup-url">Publicada en {DEMO_PUBLISHED_URL.replace(/^https?:\/\//, '').replace(/\/$/, '')}</p>
-          )}
+          <img src={shot.src} alt={shot.caption} />
+          <p className="backup-caption">
+            {shots.length > 1 && (
+              <span>
+                {idx + 1} / {shots.length}
+              </span>
+            )}
+            {shot.caption}
+          </p>
         </div>
       )}
     </section>

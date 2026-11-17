@@ -1,4 +1,4 @@
-import { ALOE, CRITERIA, TALK } from '../content/talk';
+import { ALOE, CRITERIA, PUBLISH_SHOTS, TALK } from '../content/talk';
 import { BEYOND_PROMPTS, ITERATION_PROMPTS, SIGNAL_TEMPLATE } from '../content/prompts';
 import { CopyButton } from './CopyButton';
 import { PromptBuilder } from './PromptBuilder';
@@ -154,34 +154,53 @@ export function Kit() {
           <h2>Publica tu landing</h2>
           <p>
             Con la cuenta @aloe, Canvas no permite compartir con enlace ni exportar a Google Sites. Sí deja descargar el
-            código, y con eso basta para publicarla gratis en un par de minutos.
+            código, y con eso basta para publicarla gratis con Netlify Drop en unos minutos.
           </p>
           <ol className="steps">
             <li>
-              En Canvas, abre <strong>Exportar</strong> y elige <strong>Descargar código</strong>.
-            </li>
-            <li>
-              Crea una carpeta con el nombre de tu proyecto y guarda el archivo dentro como <code>index.html</code>.
-              Ábrelo con doble clic para comprobar que se ve bien y que el botón abre tu formulario.
+              En Canvas, abre <strong>Exportar</strong> y elige <strong>Descargar código</strong>. Abre el archivo con
+              doble clic y comprueba que el botón abre tu formulario.
             </li>
             <li>
               Entra a{' '}
               <a href="https://app.netlify.com/drop" target="_blank" rel="noreferrer">
                 app.netlify.com/drop
               </a>{' '}
-              y arrastra la carpeta. En segundos tendrás un enlace que termina en <code>netlify.app</code>.
+              y arrastra el archivo. Cuando pregunte, elige <strong>Rename and deploy</strong>.
             </li>
             <li>
-              Crea una cuenta gratis (con GitHub o tu correo personal) y reclama el sitio. Sin cuenta, el enlace queda
-              protegido con contraseña y se borra al poco tiempo.
+              Tu landing ya está en línea, pero con contraseña y solo por una hora. Pulsa{' '}
+              <strong>Claim this site</strong> y crea tu cuenta gratis con Google, GitHub o tu correo.
             </li>
             <li>
-              Cada vez que cambies la landing, descarga el código de nuevo y arrastra la carpeta en la pestaña{' '}
-              <strong>Deploys</strong> de tu sitio: el enlace se mantiene.
+              En <strong>Domain</strong>, cambia el nombre del enlace por el de tu marca:{' '}
+              <code>tumarca.netlify.app</code>.
+            </li>
+            <li>
+              En <strong>Who can access your live project</strong>, elige <strong>Public</strong> y pulsa{' '}
+              <strong>Make public</strong>. Hasta ese momento solo la ves tú.
+            </li>
+            <li>Abre el enlace en tu celular o en una ventana de incógnito para comprobar que cualquiera puede verla.</li>
+            <li>
+              Para actualizarla, descarga el código otra vez, guárdalo como <code>index.html</code> en una carpeta y
+              arrastra la carpeta en la pestaña <strong>Deploys</strong> de tu proyecto. El enlace no cambia.
             </li>
           </ol>
+          <details className="shots">
+            <summary>Ver el paso a paso con capturas</summary>
+            <ol>
+              {PUBLISH_SHOTS.map((s) => (
+                <li key={s.src}>
+                  <figure>
+                    <img src={`../${s.src}`} alt={s.caption} loading="lazy" />
+                    <figcaption>{s.caption}</figcaption>
+                  </figure>
+                </li>
+              ))}
+            </ol>
+          </details>
           <p className="note">
-            Si no puedes publicar todavía, muéstrala desde tu laptop abriendo el <code>index.html</code>. Sirve para
+            Si no puedes publicar todavía, muéstrala desde tu laptop abriendo el archivo descargado. Sirve para
             entrevistas cara a cara, pero no para medir inscripciones.
           </p>
         </section>
