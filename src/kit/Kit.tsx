@@ -8,6 +8,7 @@ const NAV = [
   ['#prompt', 'Prompt maestro'],
   ['#iterar', 'Iterar'],
   ['#lista', 'Lista de espera'],
+  ['#publicar', 'Publicar'],
   ['#senal', 'Tu señal'],
   ['#mas', 'Ir más allá'],
   ['#criterios', 'Criterios'],
@@ -145,15 +146,48 @@ export function Kit() {
               En la pestaña <strong>Respuestas</strong> del formulario, vincúlalo a una hoja de cálculo. Ahí verás cada
               inscripción.
             </li>
-            <li>
-              Comparte la página con el botón <strong>Compartir</strong> de Canvas. Si tu cuenta no permite un enlace
-              público, pide el código, guárdalo como <code>index.html</code> y muéstralo desde tu laptop.
-            </li>
           </ol>
         </section>
 
-        <section id="senal">
+        <section id="publicar">
           <span className="num">4</span>
+          <h2>Publica tu landing</h2>
+          <p>
+            Con la cuenta @aloe, Canvas no permite compartir con enlace ni exportar a Google Sites. Sí deja descargar el
+            código, y con eso basta para publicarla gratis en un par de minutos.
+          </p>
+          <ol className="steps">
+            <li>
+              En Canvas, abre <strong>Exportar</strong> y elige <strong>Descargar código</strong>.
+            </li>
+            <li>
+              Crea una carpeta con el nombre de tu proyecto y guarda el archivo dentro como <code>index.html</code>.
+              Ábrelo con doble clic para comprobar que se ve bien y que el botón abre tu formulario.
+            </li>
+            <li>
+              Entra a{' '}
+              <a href="https://app.netlify.com/drop" target="_blank" rel="noreferrer">
+                app.netlify.com/drop
+              </a>{' '}
+              y arrastra la carpeta. En segundos tendrás un enlace que termina en <code>netlify.app</code>.
+            </li>
+            <li>
+              Crea una cuenta gratis (con GitHub o tu correo personal) y reclama el sitio. Sin cuenta, el enlace queda
+              protegido con contraseña y se borra al poco tiempo.
+            </li>
+            <li>
+              Cada vez que cambies la landing, descarga el código de nuevo y arrastra la carpeta en la pestaña{' '}
+              <strong>Deploys</strong> de tu sitio: el enlace se mantiene.
+            </li>
+          </ol>
+          <p className="note">
+            Si no puedes publicar todavía, muéstrala desde tu laptop abriendo el <code>index.html</code>. Sirve para
+            entrevistas cara a cara, pero no para medir inscripciones.
+          </p>
+        </section>
+
+        <section id="senal">
+          <span className="num">5</span>
           <h2>Define tu señal antes de compartir</h2>
           <p>
             Decide hoy qué resultado significa "seguimos". Si lo decides después de ver los números, cualquier resultado
@@ -173,7 +207,7 @@ export function Kit() {
         </section>
 
         <section id="mas">
-          <span className="num">5</span>
+          <span className="num">6</span>
           <h2>Ir más allá</h2>
           <p>Cuando la landing ya esté recibiendo visitas, estas cuatro tareas ayudan a entender mejor a tu cliente.</p>
           <div className="cards">
@@ -184,7 +218,7 @@ export function Kit() {
         </section>
 
         <section id="criterios">
-          <span className="num">6</span>
+          <span className="num">7</span>
           <h2>Cuatro criterios para trabajar con IA</h2>
           <ol className="criteria">
             {CRITERIA.map((c) => (

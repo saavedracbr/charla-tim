@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es-PE" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Allqu — Premios naturales para perros en Lima</title>
+  <meta name="description" content="Premia a tu perro con snacks hechos con quinua, camote, kiwicha y solo 5 ingredientes reales que sí puedes leer. Apúntate a la primera tanda en Lima." />
+
+  <!-- Tipografías Google Fonts: Plus Jakarta Sans (cercana y moderna) + Inter (lectura limpia) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configuración de paleta de 3 colores acorde a la marca:
+       1. Crema cálido (#FAF7F2) - Fondo principal limpio y natural
+       2. Verde bosque andino (#233D32) - Texto principal y confianza
+       3. Terracota camote (#C85A17) - Acento cálido y botones de acción -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            crema: '#FAF7F2',
+            bosque: '#233D32',
+            camote: '#C85A17',
+            'camote-oscuro': '#A94910',
+          },
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Estilos base y animaciones suaves de aparición */
+    body {
+      background-color: #FAF7F2;
+      color: #233D32;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-crema text-bosque selection:bg-camote selection:text-white overflow-x-hidden">
+
+  <!-- =====================================================================
+       BARRA SUPERIOR MINIMALISTA
+       ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-crema/90 backdrop-blur-md border-b border-bosque/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
+      <!-- Marca Allqu con ícono SVG minimalista -->
+      <a href="#" class="flex items-center gap-2.5 group focus:outline-none">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-bosque text-crema flex items-center justify-center shadow-sm group-hover:bg-camote transition-colors">
+          <!-- Ícono simple de huella / semilla andina -->
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="4" r="2" />
+            <circle cx="18" cy="8" r="2" />
+            <circle cx="20" cy="16" r="2" />
+            <path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" />
+          </svg>
+        </div>
+        <span class="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-bosque">
+          Allqu
+        </span>
+      </a>
+
+      <!-- Botón secundario de acción rápida -->
+      <a
+        href="https://forms.gle/ejTtPiTYkbe7XXZw9"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-full bg-camote hover:bg-camote-oscuro text-white font-display font-bold text-xs sm:text-sm transition-all shadow-sm active:scale-95"
+      >
+        Quiero ser de los primeros
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- =====================================================================
+         1. ENCABEZADO (HERO) — CENTRADO EN EL BENEFICIO
+         ===================================================================== -->
+    <section class="pt-10 pb-16 sm:pt-16 sm:pb-24 px-4 sm:px-6">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- Columna de texto principal -->
+        <div class="lg:col-span-7 text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-bosque/5 border border-bosque/10 text-bosque text-xs sm:text-sm font-medium mb-6">
+            <span class="w-2 h-2 rounded-full bg-camote"></span>
+            <span>Primera tanda en Lima • Lista de espera abierta</span>
+          </div>
+
+          <!-- Frase principal centrada en el beneficio emocional y práctico -->
+          <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-[3.25rem] leading-[1.12] tracking-tight text-bosque mb-5">
+            Engríe a tu perro sabiendo exactamente qué come.
+          </h1>
+
+          <!-- Bajada corta y directa -->
+          <p class="text-base sm:text-lg text-bosque/80 leading-relaxed mb-8 max-w-xl">
+            Snacks naturales hechos con quinua, camote y kiwicha. Solo <strong class="font-semibold text-bosque">5 ingredientes reales</strong> que tú mismo puedes leer y reconocer en la etiqueta.
+          </p>
+
+          <!-- Botón principal (CTA) -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a
+              href="https://forms.gle/ejTtPiTYkbe7XXZw9"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-camote hover:bg-camote-oscuro text-white font-display font-bold text-base sm:text-lg shadow-md hover:shadow-lg transition-all active:scale-[0.99]"
+            >
+              <span>Quiero ser de los primeros</span>
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <p class="mt-3.5 text-xs sm:text-sm text-bosque/65">
+            Apúntate gratis en 30 segundos. Te avisaremos apenas salga nuestra primera tanda.
+          </p>
+        </div>
+
+        <!-- Columna visual: Comparador interactivo de etiquetas (sin datos inventados) -->
+        <div class="lg:col-span-5">
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-bosque/10 shadow-sm">
+            <div class="flex items-center justify-between mb-5">
+              <span class="font-display font-bold text-sm uppercase tracking-wider text-bosque/60">
+                Mira la diferencia
+              </span>
+              <!-- Switch interactivo para comparar etiquetas -->
+              <div class="inline-flex rounded-full bg-crema p-1 border border-bosque/10" role="group" aria-label="Comparar etiquetas">
+                <button
+                  type="button"
+                  id="btn-allqu"
+                  onclick="toggleLabel('allqu')"
+                  class="px-3.5 py-1.5 rounded-full text-xs font-display font-bold bg-bosque text-crema transition-all"
+                >
+                  Con Allqu
+                </button>
+                <button
+                  type="button"
+                  id="btn-otro"
+                  onclick="toggleLabel('otro')"
+                  class="px-3.5 py-1.5 rounded-full text-xs font-display font-bold text-bosque/70 hover:text-bosque transition-all"
+                >
+                  Snack común
+                </button>
+              </div>
+            </div>
+
+            <!-- Vista 1: Etiqueta Allqu -->
+            <div id="card-allqu" class="space-y-4">
+              <div class="p-4 rounded-2xl bg-crema border border-bosque/10">
+                <p class="text-xs font-semibold uppercase tracking-wider text-camote mb-2">
+                  Lista completa de ingredientes (5)
+                </p>
+                <ul class="space-y-2.5 text-sm sm:text-base font-medium text-bosque">
+                  <li class="flex items-center gap-2.5">
+                    <span class="w-5 h-5 rounded-full bg-bosque text-crema text-xs flex items-center justify-center font-bold">1</span>
+                    <span>Quinua</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <span class="w-5 h-5 rounded-full bg-bosque text-crema text-xs flex items-center justify-center font-bold">2</span>
+                    <span>Camote</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <span class="w-5 h-5 rounded-full bg-bosque text-crema text-xs flex items-center justify-center font-bold">3</span>
+                    <span>Kiwicha</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <span class="w-5 h-5 rounded-full bg-bosque/15 text-bosque text-xs flex items-center justify-center font-bold">4</span>
+                    <span class="text-bosque/80">[Ingrediente natural 4 por definir]</span>
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <span class="w-5 h-5 rounded-full bg-bosque/15 text-bosque text-xs flex items-center justify-center font-bold">5</span>
+                    <span class="text-bosque/80">[Ingrediente natural 5 por definir]</span>
+                  </li>
+                </ul>
+              </div>
+              <p class="text-xs sm:text-sm text-bosque/75 flex items-center gap-2">
+                <svg class="w-4 h-4 text-camote shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Sin nombres raros. Si está en tu cocina, lo entiendes.</span>
+              </p>
+            </div>
+
+            <!-- Vista 2: Etiqueta Snack Industrial Común -->
+            <div id="card-otro" class="hidden space-y-4">
+              <div class="p-4 rounded-2xl bg-bosque/5 border border-bosque/10">
+                <p class="text-xs font-semibold uppercase tracking-wider text-bosque/50 mb-2">
+                  Lo que sueles leer atrás de una bolsa
+                </p>
+                <p class="text-xs sm:text-sm text-bosque/60 leading-relaxed font-mono">
+                  Subproductos de origen animal, harinas refinadas, glicerina, propilenglicol, sorbato de potasio, saborizantes artificiales, colorantes añadidos y conservantes sintéticos...
+                </p>
+              </div>
+              <p class="text-xs sm:text-sm text-bosque/75 flex items-center gap-2">
+                <svg class="w-4 h-4 text-bosque/60 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                <span>¿Tú te comerías algo que no puedes ni pronunciar?</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         2. SECCIÓN "EL PROBLEMA" — 3 SITUACIONES EN PALABRAS DEL CLIENTE
+         ===================================================================== -->
+    <section id="problema" class="py-16 sm:py-24 px-4 sm:px-6 bg-white border-y border-bosque/10">
+      <div class="max-w-5xl mx-auto">
+        <div class="max-w-2xl mb-12 reveal">
+          <span class="text-xs sm:text-sm font-display font-bold uppercase tracking-wider text-camote">
+            El problema
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-bosque mt-2 leading-tight">
+            Si tratas a tu perro como parte de tu familia, seguro te ha pasado esto:
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <!-- Situación 1 -->
+          <article class="reveal bg-crema rounded-3xl p-6 sm:p-7 border border-bosque/10 flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-2xl bg-camote/10 text-camote flex items-center justify-center font-display font-extrabold text-lg mb-5">
+                “
+              </div>
+              <p class="text-base sm:text-lg font-medium text-bosque leading-relaxed">
+                Volteo la bolsa en la tienda y parece una clase de química. Si no entiendo qué dice la etiqueta, ¿por qué se lo daría a mi perro?
+              </p>
+            </div>
+            <p class="mt-6 pt-4 border-t border-bosque/10 text-xs sm:text-sm text-bosque/60">
+              Al leer los ingredientes de los snacks comerciales
+            </p>
+          </article>
+
+          <!-- Situación 2 -->
+          <article class="reveal bg-crema rounded-3xl p-6 sm:p-7 border border-bosque/10 flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-2xl bg-camote/10 text-camote flex items-center justify-center font-display font-extrabold text-lg mb-5">
+                “
+              </div>
+              <p class="text-base sm:text-lg font-medium text-bosque leading-relaxed">
+                Me encanta engreírlo cuando llego del trabajo, pero siempre me queda la culpa de estar dándole pura harina procesada y saborizantes.
+              </p>
+            </div>
+            <p class="mt-6 pt-4 border-t border-bosque/10 text-xs sm:text-sm text-bosque/60">
+              Al querer premiarlo todos los días sin hacerle daño
+            </p>
+          </article>
+
+          <!-- Situación 3 -->
+          <article class="reveal bg-crema rounded-3xl p-6 sm:p-7 border border-bosque/10 flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-2xl bg-camote/10 text-camote flex items-center justify-center font-display font-extrabold text-lg mb-5">
+                “
+              </div>
+              <p class="text-base sm:text-lg font-medium text-bosque leading-relaxed">
+                Yo cuido lo que como en Lima y busco opciones naturales para mí, pero cuando busco premios igual de limpios para él, casi no encuentro.
+              </p>
+            </div>
+            <p class="mt-6 pt-4 border-t border-bosque/10 text-xs sm:text-sm text-bosque/60">
+              Al buscar comida real para un miembro más de casa
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. SECCIÓN "CÓMO FUNCIONA" — 3 PASOS SIMPLES
+         ===================================================================== -->
+    <section id="como-funciona" class="py-16 sm:py-24 px-4 sm:px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="max-w-2xl mb-12 reveal">
+          <span class="text-xs sm:text-sm font-display font-bold uppercase tracking-wider text-camote">
+            Cómo funciona
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-bosque mt-2 leading-tight">
+            Así de simple es probar Allqu en nuestra primera tanda:
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Paso 1 -->
+          <div class="reveal relative bg-white rounded-3xl p-6 sm:p-8 border border-bosque/10">
+            <span class="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-bosque text-crema font-display font-extrabold text-lg mb-5">
+              1
+            </span>
+            <h3 class="font-display font-bold text-xl text-bosque mb-2.5">
+              Te apuntas en la lista
+            </h3>
+            <p class="text-sm sm:text-base text-bosque/75 leading-relaxed">
+              Llenas un formulario cortito para reservar tu cupo en la primera tanda en Lima. No tienes que pagar nada hoy.
+            </p>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="reveal relative bg-white rounded-3xl p-6 sm:p-8 border border-bosque/10">
+            <span class="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-bosque text-crema font-display font-extrabold text-lg mb-5">
+              2
+            </span>
+            <h3 class="font-display font-bold text-xl text-bosque mb-2.5">
+              Preparamos el lote fresco
+            </h3>
+            <p class="text-sm sm:text-base text-bosque/75 leading-relaxed">
+              Elaboramos los snacks en lotes pequeños con quinua, camote, kiwicha y 2 ingredientes naturales más. Sin conservantes artificiales.
+            </p>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="reveal relative bg-white rounded-3xl p-6 sm:p-8 border border-bosque/10">
+            <span class="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-camote text-white font-display font-extrabold text-lg mb-5">
+              3
+            </span>
+            <h3 class="font-display font-bold text-xl text-bosque mb-2.5">
+              Te avisamos y lo engríes
+            </h3>
+            <p class="text-sm sm:text-base text-bosque/75 leading-relaxed">
+              Apenas salgan del horno ([fecha de lanzamiento y precio por definir]), te escribimos para coordinar tu entrega en Lima.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. SECCIÓN DE BENEFICIOS — 3 BENEFICIOS CON ÍCONO
+         ===================================================================== -->
+    <section id="beneficios" class="py-16 sm:py-24 px-4 sm:px-6 bg-white border-t border-bosque/10">
+      <div class="max-w-5xl mx-auto">
+        <div class="max-w-2xl mb-12 reveal">
+          <span class="text-xs sm:text-sm font-display font-bold uppercase tracking-wider text-camote">
+            Por qué elegir Allqu
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-bosque mt-2 leading-tight">
+            Lo que ganas tú (y lo que disfruta tu perro)
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <!-- Beneficio 1 -->
+          <div class="reveal p-6 sm:p-8 rounded-3xl bg-crema border border-bosque/10">
+            <div class="w-12 h-12 rounded-2xl bg-camote/15 text-camote flex items-center justify-center mb-6">
+              <!-- Ícono: Lista / Etiqueta clara -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 11l3 3L22 4" />
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-xl text-bosque mb-2.5">
+              5 ingredientes que sí puedes leer
+            </h3>
+            <p class="text-sm sm:text-base text-bosque/75 leading-relaxed">
+              Nada escondido ni palabras impronunciables. Sabes exactamente qué entra en su pancita cada vez que abres la bolsa.
+            </p>
+          </div>
+
+          <!-- Beneficio 2 -->
+          <div class="reveal p-6 sm:p-8 rounded-3xl bg-crema border border-bosque/10">
+            <div class="w-12 h-12 rounded-2xl bg-camote/15 text-camote flex items-center justify-center mb-6">
+              <!-- Ícono: Planta / Grano andino -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 20h10" />
+                <path d="M10 20c5.5-2.5.8-6.4 3-10" />
+                <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
+                <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-xl text-bosque mb-2.5">
+              Insumos nobles de nuestros Andes
+            </h3>
+            <p class="text-sm sm:text-base text-bosque/75 leading-relaxed">
+              Hechos con quinua, camote y kiwicha. Ingredientes reales de nuestra tierra que aportan fibra y energía natural.
+            </p>
+          </div>
+
+          <!-- Beneficio 3 -->
+          <div class="reveal p-6 sm:p-8 rounded-3xl bg-crema border border-bosque/10">
+            <div class="w-12 h-12 rounded-2xl bg-camote/15 text-camote flex items-center justify-center mb-6">
+              <!-- Ícono: Corazón / Confianza -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-xl text-bosque mb-2.5">
+              Lo engríes sin remordimientos
+            </h3>
+            <p class="text-sm sm:text-base text-bosque/75 leading-relaxed">
+              Disfruta ese momento de darle un premio sabiendo que lo estás cuidando como parte de tu familia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. CIERRE — INVITACIÓN A INSCRIBIRSE A LA PRIMERA TANDA
+         ===================================================================== -->
+    <section class="py-16 sm:py-24 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="reveal bg-bosque text-crema rounded-[2rem] p-8 sm:p-14 text-center shadow-lg">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-crema/10 text-crema/90 text-xs sm:text-sm font-medium mb-5">
+            Cupos limitados para la primera producción
+          </span>
+
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl lg:text-[2.6rem] leading-tight mb-4">
+            Inscríbete hoy a la primera tanda de Allqu en Lima.
+          </h2>
+
+          <p class="text-base sm:text-lg text-crema/80 max-w-xl mx-auto leading-relaxed mb-8">
+            Estamos preparando un primer lote pequeño para dueños que buscan premios más limpios para sus perros. Apúntate en la lista de espera y te avisamos apenas estén listos ([precio y presentación por definir]).
+          </p>
+
+          <a
+            href="https://forms.gle/ejTtPiTYkbe7XXZw9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-8 py-4 rounded-2xl bg-camote hover:bg-camote-oscuro text-white font-display font-bold text-base sm:text-lg shadow-md hover:shadow-xl transition-all active:scale-[0.99]"
+          >
+            <span>Quiero ser de los primeros</span>
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+
+          <p class="mt-4 text-xs sm:text-sm text-crema/60">
+            Sin compromiso de compra • Toma menos de 1 minuto
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       PIE DE PÁGINA SENCILLO
+       ===================================================================== -->
+  <footer class="border-t border-bosque/10 py-8 px-4 sm:px-6 text-center text-xs sm:text-sm text-bosque/65">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="font-display font-bold text-bosque text-base">Allqu</p>
+      <p>Snacks naturales para perros con quinua, camote y kiwicha • Lima, Perú</p>
+      <p>Demo de clase: Allqu es una marca ficticia.</p>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       JAVASCRIPT: INTERACTIVIDAD DE ETIQUETA Y ANIMACIONES SUAVES
+       ===================================================================== -->
+  <script>
+    // Alternar entre la etiqueta transparente de Allqu y un snack comercial común
+    function toggleLabel(type) {
+      const btnAllqu = document.getElementById('btn-allqu');
+      const btnOtro = document.getElementById('btn-otro');
+      const cardAllqu = document.getElementById('card-allqu');
+      const cardOtro = document.getElementById('card-otro');
+
+      if (!btnAllqu || !btnOtro || !cardAllqu || !cardOtro) return;
+
+      if (type === 'allqu') {
+        cardAllqu.classList.remove('hidden');
+        cardOtro.classList.add('hidden');
+
+        btnAllqu.classList.add('bg-bosque', 'text-crema');
+        btnAllqu.classList.remove('text-bosque/70');
+
+        btnOtro.classList.remove('bg-bosque', 'text-crema');
+        btnOtro.classList.add('text-bosque/70');
+      } else {
+        cardOtro.classList.remove('hidden');
+        cardAllqu.classList.add('hidden');
+
+        btnOtro.classList.add('bg-bosque', 'text-crema');
+        btnOtro.classList.remove('text-bosque/70');
+
+        btnAllqu.classList.remove('bg-bosque', 'text-crema');
+        btnAllqu.classList.add('text-bosque/70');
+      }
+    }
+
+    // Animación sutil al hacer scroll para dar fluidez en móvil y escritorio
+    document.addEventListener('DOMContentLoaded', () => {
+      const elements = document.querySelectorAll('.reveal');
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        elements.forEach((el) => observer.observe(el));
+      } else {
+        // Respaldo inmediato si el navegador no soporta IntersectionObserver
+        elements.forEach((el) => el.classList.add('visible'));
+      }
+    });
+  </script>
+</body>
+</html>

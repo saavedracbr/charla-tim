@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { DEMO_BACKUP, DEMO_BRAND, DEMO_STEPS } from '../content/talk';
+import { DEMO_BACKUP, DEMO_BRAND, DEMO_PUBLISHED_URL, DEMO_STEPS } from '../content/talk';
 import { useSlideAnim } from '../deck/anim';
 import type { SlideProps } from '../deck/types';
 
@@ -64,6 +64,9 @@ export function S11Demo({ step }: SlideProps) {
       {backup && shot && (
         <div className="backup">
           <img src={shot} alt={`Captura de respaldo del paso ${step}`} />
+          {step === DEMO_STEPS.length && (
+            <p className="backup-url">Publicada en {DEMO_PUBLISHED_URL.replace(/^https?:\/\//, '').replace(/\/$/, '')}</p>
+          )}
         </div>
       )}
     </section>

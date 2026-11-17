@@ -93,14 +93,17 @@ export const DEMO_STEPS: { title: string; detail: string }[] = [
   { title: 'Prompt maestro con Canvas', detail: 'Gemini genera la landing completa en una sola respuesta.' },
   { title: 'Una iteración', detail: 'Pedir un cambio en lenguaje natural y ver el resultado.' },
   { title: 'Conectar la lista de espera', detail: 'El botón abre un Google Form; las respuestas caen en Sheets.' },
-  { title: 'Compartir', detail: 'Un enlace que se puede enviar hoy a clientes reales.' },
+  { title: 'Descargar y publicar', detail: 'Exportar el código y arrastrarlo a Netlify Drop: un enlace para enviar hoy.' },
 ];
 
 /**
- * Respaldo de la demo: capturas en public/demo/ (una por paso, en orden).
- * Ejemplo: ['demo/paso-1.png', 'demo/paso-2.png', ...]
+ * Respaldo de la demo: capturas en public/demo/ (una por paso, en orden). Tecla B en la diapositiva.
+ * Paso 5: la landing ya publicada está en public/allqu/ (tim.saavedracbr.com/allqu/).
  */
-export const DEMO_BACKUP: string[] = [];
+export const DEMO_BACKUP: string[] = [1, 2, 3, 4, 5].map((n) => `demo/paso-${n}.png`);
+
+/** Copia publicada de la landing de la demo, por si la publicación en vivo falla. */
+export const DEMO_PUBLISHED_URL = `${PUBLIC_URL}allqu/`;
 
 export const SPRINT_STEPS = [
   'Abran el kit con el QR.',
@@ -110,6 +113,6 @@ export const SPRINT_STEPS = [
 
 export const NEXT_STEPS = [
   'Conecten el botón a un Google Form.',
-  'Compartan el enlace con 10 clientes reales.',
+  'Publíquenla y envíenla a 10 clientes reales.',
   'Cuenten inscripciones, no opiniones.',
 ];
